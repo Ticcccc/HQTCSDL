@@ -1,4 +1,6 @@
-﻿--LAB4:
+Nguyễn Mạnh Hùng Vĩ
+09ĐHCNTT3
+--LAB4:
 Bài 1:
 ➢Viết chương trình xem xét có tăng lương cho nhân viên hay không. Hiển thị cột thứ 1 là TenNV, cột thứ 2 nhận giá trị
 o “TangLuong” nếu lương hiện tại của nhân viên nhở hơn trung bình lương trong
