@@ -1,4 +1,6 @@
-﻿--LAB3:
+Nguyễn Mạnh Hùng Vĩ
+09ĐHCNTT3
+--LAB3:
 Bài 1:
 ➢Với mỗi đề án, liệt kê tên đề án và tổng số giờ làm việc một tuần của tất cả các nhân viên tham dự đề án đó.
 o Xuất định dạng “tổng số giờ làm việc” kiểu decimal với 2 số thập phân.
