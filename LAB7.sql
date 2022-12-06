@@ -58,3 +58,28 @@ BEGIN
 END
 --Gói chạy
 select * from [dbo].[FN_ThongTinPhongDA](1)
+Bài 2:
+Tạo các view:
+➢ Hiển thị thông tin HoNV,TenNV,TenPHG, DiaDiemPhg.
+CREATE VIEW ThongTin1
+AS
+	select HONV,TENNV,TENPHG,DIADIEM from NHANVIEN
+	inner join PHONGBAN on NHANVIEN.PHG=PHONGBAN.MAPHG
+	inner join DIADIEM_PHG on DIADIEM_PHG.MAPHG=PHONGBAN.MAPHG
+➢ Hiển thị thông tin TenNv, Lương, Tuổi.
+CREATE VIEW ThongTin2
+AS
+	select TENNV, LUONG, DATEDIFF(year, NGSINH, GETDATE()) + 1 as 'Tuổi' from NHANVIEN
+➢ Hiển thị tên phòng ban và họ tên trưởng phòng của phòng ban có đông nhân viên nhất
+CREATE VIEW PhongBanDongNhat
+AS
+	select a.TENPHG,
+	b.HONV+' '+b.TENLOT+' '+b.TENNV as 'TenTruongPhong'
+	from PHONGBAN a inner join NHANVIEN b on a.TRPHG=b.MANV
+	where a.MAPHG in (select PHG from NHANVIEN
+						group by PHG
+						having count(MANV) =
+							(select top 1 count(MANV) as NVCount from NHANVIEN
+								group by PHG
+								order by NVCount desc)
+						)
